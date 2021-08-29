@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Site Crate</title>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;1,400&family=Tangerine&display=swap"
+			rel="stylesheet"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+			integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+	</head>
+	<body class="primary">
+		<section class="scene-container">
+			<div class="loading-screen primary">
+				<div class="loading-content">
+					<h2 class="loading-text mb-4">
+						" Websites deserve to <br />
+						be beautiful. "
+					</h2>
+					<div class="loading-bar">
+						<div id="loader" class="filled-loading-bar"></div>
+					</div>
+				</div>
+			</div>
+			<div class="overlay scene-overlay"></div>
+			<canvas class="webgl"></canvas>
+			<div class="scene-content">
+				<div class="container">
+					<nav class="main-nav scene-nav">
+						<div class="logo-container">
+							<img src="/logo.svg" alt="Logo" class="logo" />
+							<h1 class="M-heading">SiteCrate</h1>
+						</div>
+						<div class="nav-links">
+							<span class="link light-font"> Home </span>
+							<span class="link light-font"> About </span>
+							<span class="link light-font"> Contact </span>
+						</div>
+						<div class="hamburger-menu">
+							<i
+								class="fas fa-align-right menu-icon"
+								onclick="document.querySelector('.menu-links').classList.toggle('active')"
+							></i>
+							<div class="menu-links secondary">
+								<p class="link light-font">Home</p>
+								<p class="link light-font">About</p>
+								<p class="link light-font">Contact</p>
+							</div>
+						</div>
+					</nav>
+					<div class="scroll-indicator scroll-indicator-right">
+						<div class="line"></div>
+						SCROLL
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="offers-container">
+			<div class="container">
+				<div class="flex">
+					<div class="our-services">
+						<h2 class="L-heading primary-text mt-3">
+							Our <br />
+							Services
+						</h2>
+						<hr class="line my-2 transparent" />
+						<div class="explanations-container">
+							<div class="explanation fade-in">
+								<h3 class="S-heading">
+									<span class="primary-text">Beautiful</span>
+									Websites
+								</h3>
+								<p class="mt-2 small">
+									If you are thinking of getting a website for
+									yourself, for your business, or for any
+									other reason, do it. You will need it. Lucky
+									for you, we offer any websites you can think
+									of. We promise you that your website will
+									attract attention like a lamp attracts bugs.
+								</p>
+								<p class="mt-2 small">
+									With professional designs, interactive
+									experiences and more, there is no one that
+									won't be jealous of your website!
+								</p>
+							</div>
+							<div class="explanation">
+								<h3 class="S-heading">
+									<span class="primary-text">Full Stack</span>
+									Applications
+								</h3>
+								<p class="mt-2 small">
+									Today, a lot of repetative daily activities
+									have been automated thanks to the internet.
+									You have a crazy idea for a full stack
+									website that might change the world? We are
+									the right people for you. Not only will your
+									web app look beautiful, it will perform like
+									a sports car!
+								</p>
+								<p class="mt-2 small">
+									With a web app like that, no one will be
+									able to resist your services. Not even the
+									most skeptical.
+								</p>
+							</div>
+							<div class="explanation">
+								<h3 class="S-heading">
+									<span class="primary-text"
+										>Professional</span
+									>
+									Designs
+								</h3>
+								<p class="mt-2 small">
+									We have a lot of experience with UI/UX
+									design. We never let our childish creativity
+									die. We promise you that any design we
+									deliver will be professional, beautiful,
+									modern and most importantly, completely new.
+								</p>
+								<p class="mt-2 small">
+									Your design will be something special.
+									Something that turns heads. Something that
+									hasn't been seen before.
+								</p>
+							</div>
+							<div class="explanation">
+								<h3 class="S-heading">
+									<span class="primary-text">E-commerce</span>
+									Stores
+								</h3>
+								<p class="mt-2 small">
+									The fastest way to make some profit on the
+									internet is through an online store. This
+									might sound complicated, but it doesn't have
+									to be. We made sure of that. Setting up your
+									online store with us will be smooth like
+									butter.
+								</p>
+								<p class="mt-2 small">
+									No one will be able to resist your product
+									after seeing your store. Whatever product
+									you sell, trust us, your store will be the
+									#1!
+								</p>
+							</div>
+							<div class="explanation">
+								<h3 class="S-heading">
+									<span class="primary-text">3D Web</span>
+									Experiences
+								</h3>
+								<p class="mt-2 small">
+									As we said, the new generation of websites
+									is here. If you want to get in on the
+									action, we are the right people. We can turn
+									a simple website into a fully interactive 3D
+									Web Experience. Your clients will feel like
+									they are a part of a movie and the website
+									will show them just how serious you are
+									about business.
+								</p>
+								<p class="mt-2 small">
+									Whoever goes to your website will be having
+									such a great experience that they won't want
+									to ever leave.
+								</p>
+							</div>
+							<div class="explanation">
+								<h3 class="S-heading">
+									<span class="primary-text">Personal</span>
+									Portfolios
+								</h3>
+								<p class="mt-2 small">
+									Everyone needs a portfolio. You can easily
+									showcase anything about you that you desire.
+									Portfolios are more important than you
+									think. That's you your portfolio needs to be
+									the best there is. It needs to grab
+									attention and it needs to scream: HIRE ME!
+								</p>
+								<p class="mt-2 small">
+									There is no job or position that you can't
+									get with the right portfolio. Make the right
+									choice.
+								</p>
+							</div>
+							<div class="explanation">
+								<h3 class="S-heading">
+									<span class="primary-text"
+										>Social Media</span
+									>
+									Websites
+								</h3>
+								<p class="mt-2 small">
+									The most used websites on the internet are
+									social media websites! Don't worry, it's
+									still not too late to join the party. If you
+									have an idea for the next Facebook, we can
+									make your idea into reality.
+								</p>
+								<p class="mt-2 small">
+									All of your dreams about being the next huge
+									startup can become more real than you ever
+									taking out the trash.
+								</p>
+							</div>
+							<div class="explanation">
+								<h3 class="S-heading">
+									<span class="primary-text"
+										>Informational</span
+									>
+									Websites
+								</h3>
+								<p class="mt-2 small">
+									In a world of misinformaion, it's imporant
+									to make sure that we do everything we can to
+									prevent it. If you are knowlegdable about a
+									topic and would love to teach other, or just
+									spread info about it, you've come to the
+									right place.
+								</p>
+								<p class="mt-2 small">
+									Teach the world. Write about a topic. Expand
+									your knowledge. Spread some positive
+									information on the internet.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="offers-globe">
+						<p class="transparent background-text">
+							<i class="fas fa-mouse"></i> click to discover
+						</p>
+						<div class="offers"></div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="testimonials-section">
+			<img src="/shape.svg" alt="Shape" class="shape" />
+			<div class="container">
+				<div class="img-container">
+					<img
+						src="/human.png"
+						class="main-img"
+						alt="Character holding thumbs up"
+					/>
+				</div>
+				<div class="testimonials-text mt-4 right">
+					<h2 class="L-heading">
+						Our websites are <br />
+						<span class="italic dark-blue">worth it.</span>
+					</h2>
+					<p class="lead">Listen to what some of our clients say.</p>
+				</div>
+				<div class="testimonials-container">
+					<div class="testimonials">
+						<div class="testimonial">
+							<i
+								class="
+									fas
+									fa-quote-right fa-3x
+									quote quote-corner
+								"
+							></i>
+							<i
+								class="
+									fas
+									fa-quote-left fa-8x
+									quote quote-center
+								"
+							></i>
+							<div class="testimonial-content">
+								<div class="testimonial-person">
+									<img src="/flag.jpg" alt="Testimonial" />
+									<p class="transparent">
+										Duck McQuackton <br />
+										CEO, Duck Inc.
+									</p>
+								</div>
+								<div class="text mt-3">
+									<p>
+										Thanks to my new website, i have gotten
+										a lot more respect and tons of clients!
+									</p>
+								</div>
+							</div>
+							<div class="wave">
+								<img src="/wave.svg" alt="WAAVE" />
+							</div>
+						</div>
+						<div class="testimonial">
+							<i
+								class="
+									fas
+									fa-quote-right fa-3x
+									quote quote-corner
+								"
+							></i>
+							<i
+								class="
+									fas
+									fa-quote-left fa-8x
+									quote quote-center
+								"
+							></i>
+							<div class="testimonial-content">
+								<div class="testimonial-person">
+									<img src="/flag.jpg" alt="Testimonial" />
+									<p class="transparent">
+										Duck McQuackton <br />
+										CEO, Duck Inc.
+									</p>
+								</div>
+								<div class="text mt-3">
+									<p>
+										Thanks to my new website, i have gotten
+										a lot more respect and tons of clients!
+									</p>
+								</div>
+							</div>
+							<div class="wave">
+								<img src="/wave.svg" alt="WAAVE" />
+							</div>
+						</div>
+						<div class="testimonial">
+							<i
+								class="
+									fas
+									fa-quote-right fa-3x
+									quote quote-corner
+								"
+							></i>
+							<i
+								class="
+									fas
+									fa-quote-left fa-8x
+									quote quote-center
+								"
+							></i>
+							<div class="testimonial-content">
+								<div class="testimonial-person">
+									<img src="/flag.jpg" alt="Testimonial" />
+									<p class="transparent">
+										Duck McQuackton <br />
+										CEO, Duck Inc.
+									</p>
+								</div>
+								<div class="text mt-3">
+									<p>
+										Thanks to my new website, i have gotten
+										a lot more respect and tons of clients!
+									</p>
+								</div>
+							</div>
+							<div class="wave">
+								<img src="/wave.svg" alt="WAAVE" />
+							</div>
+						</div>
+						<div class="testimonial">
+							<i
+								class="
+									fas
+									fa-quote-right fa-3x
+									quote quote-corner
+								"
+							></i>
+							<i
+								class="
+									fas
+									fa-quote-left fa-8x
+									quote quote-center
+								"
+							></i>
+							<div class="testimonial-content">
+								<div class="testimonial-person">
+									<img src="/flag.jpg" alt="Testimonial" />
+									<p class="transparent">
+										Duck McQuackton <br />
+										CEO, Duck Inc.
+									</p>
+								</div>
+								<div class="text mt-3">
+									<p>
+										Thanks to my new website, i have gotten
+										a lot more respect and tons of clients!
+									</p>
+								</div>
+							</div>
+							<div class="wave">
+								<img src="/wave.svg" alt="WAAVE" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>SiteCrate | Contact Us</title>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&family=Tangerine&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+			integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+	</head>
+	<body class="tertiary">
+		<section class="scene-container">
+			<div class="loading-screen">
+				<div class="loading-content">
+					<h2 class="loading-text mb-4">
+						" Websites deserve to <br />
+						be beautiful. "
+					</h2>
+					<div class="loading-bar">
+						<div id="loader" class="filled-loading-bar"></div>
+					</div>
+					<button class="start-button">Enter</button>
+				</div>
+			</div>
+			<canvas class="webgl"></canvas>
+			<div class="scene-content">
+				<div class="container">
+					<nav class="main-nav scene-nav">
+						<div class="logo-container">
+							<img src="/logo.svg" alt="Logo" class="logo" />
+							<h1 class="M-heading">SiteCrate</h1>
+						</div>
+						<div class="nav-links">
+							<span class="link light-font"> Home </span>
+							<span class="link light-font"> About </span>
+							<span class="link light-font"> Contact </span>
+						</div>
+
+						<div class="hamburger-menu">
+							<i
+								class="fas fa-align-right menu-icon"
+								onclick="document.querySelector('.menu-links').classList.toggle('active')"
+							></i>
+							<div class="menu-links secondary">
+								<p class="link light-font">Home</p>
+								<p class="link light-font">About</p>
+								<p class="link light-font">Contact</p>
+							</div>
+						</div>
+					</nav>
+					<div class="contact-form-container">
+						<h1 class="mb-2 stroke">Let's have a talk.</h1>
+						<form class="contact-form">
+							<div class="flex">
+								<div class="input-group">
+									<label class="label light-font" for="fname"
+										>First Name</label
+									>
+									<input
+										type="text"
+										id="fname"
+										name="fname"
+										class="input"
+										placeholder="John"
+									/>
+								</div>
+								<div class="input-group">
+									<label class="label light-font" for="lname"
+										>Last Name</label
+									>
+									<input
+										type="text"
+										id="lname"
+										name="lname"
+										class="input"
+										placeholder="Doe"
+									/>
+								</div>
+							</div>
+							<div class="flex">
+								<div class="input-group">
+									<label class="label light-font" for="phone"
+										>Phone Number</label
+									>
+									<input
+										type="text"
+										id="phone"
+										name="phone"
+										class="input"
+										placeholder="555-555-5555"
+									/>
+								</div>
+								<div class="input-group">
+									<label class="label light-font" for="email"
+										>Email</label
+									>
+									<input
+										type="email"
+										id="email"
+										name="email"
+										class="input"
+										placeholder="jdoe@gmail.com"
+									/>
+								</div>
+							</div>
+							<div class="input-group">
+								<label class="label light-font" for="message"
+									>Anything else to add?</label
+								>
+								<textarea
+									name="message"
+									id="message"
+									cols="30"
+									rows="10"
+									class="input"
+									placeholder="Message"
+								></textarea>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+	</body>
+</html>
