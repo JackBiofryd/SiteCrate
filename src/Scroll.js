@@ -7,11 +7,9 @@ export default class Scroll {
 	}
 
 	initHomePageAnimations() {
-		window.addEventListener('DOMContentLoaded', () => {
-			this.createOffersTransition();
-			this.createTestimonialsTransition();
-			this.createTestimonialsSlider();
-		});
+		this.createOffersTransition();
+		this.createTestimonialsTransition();
+		this.createTestimonialsSlider();
 
 		window.addEventListener('resize', () =>
 			this.createTestimonialsSlider()
@@ -95,24 +93,6 @@ export default class Scroll {
 				scrub: true,
 				pin: '.testimonials-section',
 				anticipatePin: 1
-			}
-		});
-	}
-
-	initAboutPageAnimations() {
-		this.video = document.querySelector('video');
-		if (!this.video) return;
-
-		this.aboutTimeline = gsap.timeline({
-			scrollTrigger: {
-				trigger: '.test',
-				start: 'top top',
-				scrub: true,
-				pin: true,
-				onUpdate: trigger => {
-					this.video.currentTime =
-						trigger.progress * this.video.duration;
-				}
 			}
 		});
 	}
