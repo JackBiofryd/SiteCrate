@@ -20,8 +20,9 @@ export default class ThreeScene extends Responsive {
 
 		this.backgroundColors = [0x0d3d51, 0x591810, 0x534708];
 
-		this.crateXOffsetsFromCenterOfCrate = [0, 0.5, 0];
 		this.crateXOffsetsFromCenterOfScene = [0, -1.75, -1];
+		this.crateXOffsetsFromCenterOfCrate = [0, 0.35, -0.15];
+		this.crateZOffsetsFromCenterOfCrate = [0, 0, -0.3];
 		this.crateZRotations = [0, Math.PI / 3, Math.PI * 1.75];
 
 		this.animationDuration = 3;
@@ -214,8 +215,10 @@ export default class ThreeScene extends Responsive {
 			new THREE.Vector3(
 				transitionToPos.x +
 					this.crateXOffsetsFromCenterOfCrate[this.sceneIndex],
-				transitionToPos.y + 0.5, // We add 0.5
-				transitionToPos.z + 0.25 // and 0.25 to make camera transition to center of crate
+				transitionToPos.y + 0.25, // We add 0.25
+				transitionToPos.z +
+					0.25 +
+					this.crateZOffsetsFromCenterOfCrate[this.sceneIndex] // and 0.25 to make camera transition to center of crate
 			),
 			{
 				reverse: true,
@@ -289,8 +292,10 @@ export default class ThreeScene extends Responsive {
 			new THREE.Vector3(
 				transitionToPos.x +
 					this.crateXOffsetsFromCenterOfCrate[this.sceneIndex],
-				transitionToPos.y + 0.25, // We add 0.75
-				transitionToPos.z + 0.25 // and 0.25 to make camera transition to center of crate
+				transitionToPos.y + 0.25, // We add 0.25
+				transitionToPos.z +
+					0.25 +
+					this.crateZOffsetsFromCenterOfCrate[this.sceneIndex] // and 0.25 to make camera transition to center of crate
 			),
 			{
 				zRotation: this.crateZRotations[this.sceneIndex]
