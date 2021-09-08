@@ -3,4 +3,6 @@ import Scroll from './Scroll';
 import './style.css';
 
 new ThreeApp(1);
-new Scroll();
+const scroller = new Scroll();
+
+scroller.initAboutPageAnimations();

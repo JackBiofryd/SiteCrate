@@ -1,6 +1,5 @@
 import * as THREE from 'three';
 import gsap from 'gsap/gsap-core';
-import SmoothScroll from 'smooth-scroll';
 import Responsive from './Responsive';
 
 export default class Button extends Responsive {
@@ -10,6 +9,7 @@ export default class Button extends Responsive {
 		this.camera = _options.camera;
 		this.loader = _options.loader;
 		this.timer = _options.timer;
+		this.threeScene = _options.threeScene;
 		this.pos = _options.pos;
 
 		this.mouse = new THREE.Vector2();
@@ -39,8 +39,6 @@ export default class Button extends Responsive {
 
 		this.camera.container.add(this.mesh);
 		this.scene.add(this.camera.container);
-
-		this.playFadeAnimation();
 	}
 
 	initRaycaster() {
@@ -100,13 +98,11 @@ export default class Button extends Responsive {
 	}
 
 	initOnClick() {
-		this.scroller = new SmoothScroll();
-
 		this.events.on('click', () => {
 			if (!this.hovered) return;
 
-			const scrollTo = document.querySelector('.offers-container');
-			this.scroller.animateScroll(scrollTo);
+			this.threeScene.playRedirectAnimationAndRedirect(2);
+			this.playFadeAnimation();
 		});
 	}
 
@@ -114,6 +110,8 @@ export default class Button extends Responsive {
 		this.addResponsiveFunction(() =>
 			this.transformAccordingToAspectRatio()
 		);
+
+		this.playFadeAnimation();
 	}
 
 	transformAccordingToAspectRatio() {
@@ -126,34 +124,29 @@ export default class Button extends Responsive {
 
 		if (this.aspectRatio < this.phoneRatio) this.mesh.visible = false;
 
-		const scaleFactor = this.aspectRatio / this.minAspectRatio;
-		this.mesh.scale.set(scaleFactor, scaleFactor, 1);
+		this.mesh.scale.set(this.aspectScaleFactor, this.aspectScaleFactor, 1);
 
-		this.mesh.position.y = this.pos.y + (1 - scaleFactor) * 2;
-		this.mesh.position.x = this.pos.x + (1 - scaleFactor) * 4.5;
+		this.mesh.position.y = this.pos.y + (1 - this.aspectScaleFactor) * 2;
+		this.mesh.position.x = this.pos.x + (1 - this.aspectScaleFactor) * 4.5;
 	}
 
 	playFadeAnimation() {
 		const currentScale = this.mesh.scale.clone();
 
-		gsap.to(this.material, {
+		this.timeline = gsap.timeline();
+
+		this.timeline.to(this.mesh.scale, {
 			duration: 0.5,
-			opacity: 0,
-			ease: 'power1.inOut',
-			onUpdate: () => {
-				this.camera.container.add(this.mesh);
-				this.scene.add(this.camera.container);
-			}
+			x: 0,
+			y: 0,
+			ease: 'power1.inOut'
 		});
-		gsap.to(this.material, {
+		this.timeline.to(this.mesh.scale, {
 			duration: 0.5,
-			delay: this.animationDelay - 0.5,
-			opacity: 1,
-			ease: 'power1.inOut',
-			onUpdate: () => {
-				this.camera.container.add(this.mesh);
-				this.scene.add(this.camera.container);
-			}
+			delay: 3.5,
+			x: currentScale.x,
+			y: currentScale.y,
+			ease: 'power1.inOut'
 		});
 	}
 }

@@ -178,25 +178,30 @@ export default class ThreeScene extends Responsive {
 			return this.container.scale.set(1, 1, 1);
 		}
 
-		const sizeFactor = this.aspectRatio / this.minAspectRatio;
-		const scaleFactor = sizeFactor * 0.5 + 0.5;
+		const scaleFactor = this.aspectScaleFactor * 0.5 + 0.5;
 
 		this.container.scale.set(scaleFactor, scaleFactor, scaleFactor);
 
 		if (this.aspectRatio < this.phoneRatio && this.size !== 'phoneSize') {
-			let frontCratePos = this.getComputedPositionOfFrontCrateSide();
+			const frontCratePos = this.getComputedPositionOfFrontCrateSide();
 
 			const translate = this.camera.lookingAt.x - frontCratePos.x;
 
 			this.container.position.x =
 				translate +
 				this.crateXOffsetsFromCenterOfScene[this.sceneIndex];
+			this.movedPosition.x =
+				translate +
+				this.crateXOffsetsFromCenterOfScene[this.sceneIndex];
+
 			this.container.position.y = this.initialPosition.y - 1.35;
 			this.movedPosition.y = this.initialPosition.y - 1.35;
+
 			this.size = 'phoneSize';
 		}
 
-		this.container.position.y = this.movedPosition.y + (1 - sizeFactor);
+		this.container.position.y =
+			this.movedPosition.y + (1 - this.aspectScaleFactor);
 	}
 
 	playStartAnimation() {

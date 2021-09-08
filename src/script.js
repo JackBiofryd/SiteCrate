@@ -48,7 +48,6 @@ function addTagsToDOM(tags) {
 function handleClickOnTags() {
 	const tags = document.querySelectorAll('.tagcloud--item');
 	const offerExplanations = document.querySelectorAll('.explanation');
-	console.log(tags);
 
 	document.querySelector('.offers').addEventListener('click', e => {
 		if (!e.target.classList.contains('tagcloud--item')) return;

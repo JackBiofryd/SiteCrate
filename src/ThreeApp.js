@@ -5,6 +5,8 @@ import Loader from './Loader';
 import Camera from './Camera';
 import Text from './Text';
 import ThreeScene from './ThreeScene';
+import Button from './Button';
+import SmoothScroll from 'smooth-scroll';
 
 export default class ThreeApp {
 	constructor(_pageIndex) {
@@ -55,6 +57,7 @@ export default class ThreeApp {
 			this.initRenderer();
 			this.pageIndex === 0 && this.initText();
 			this.initThreeScene();
+			this.pageIndex === 0 && this.initButton();
 			this.initRedirectEvents();
 		});
 	}
@@ -140,9 +143,26 @@ export default class ThreeApp {
 		});
 	}
 
+	initButton() {
+		const btnPos = this.text.position.clone();
+		btnPos.add(new THREE.Vector3(-3.4, -1.9, 0));
+
+		this.button = new Button({
+			scene: this.scene,
+			camera: this.camera,
+			loader: this.loader,
+			events: this.events,
+			timer: this.timer,
+			threeScene: this.threeScene,
+			pos: btnPos
+		});
+	}
+
 	initRedirectEvents() {
-		const functionToRunOnLinkClick = linkButtonIndex =>
+		const functionToRunOnLinkClick = linkButtonIndex => {
 			this.threeScene.playRedirectAnimationAndRedirect(linkButtonIndex);
+			if (this.button) this.button.playFadeAnimation();
+		};
 
 		this.events.initRedirectEvents(functionToRunOnLinkClick);
 	}
@@ -152,6 +172,31 @@ export default class ThreeApp {
 			if (e.target.classList.contains('menu-icon')) return;
 
 			document.querySelector('.menu-links').classList.remove('active');
+		};
+
+		this.initScrollToTopBtn();
+	}
+
+	initScrollToTopBtn() {
+		const scroller = document.querySelector('.scroll-to-top');
+
+		if (!scroller) return;
+
+		window.onscroll = () => {
+			if (window.pageYOffset < 50) {
+				scroller.classList.remove('fade-in');
+				return scroller.classList.add('fade-out');
+			}
+
+			scroller.classList.remove('fade-out');
+			scroller.classList.add('fade-in');
+		};
+
+		this.smoothScroll = new SmoothScroll();
+		scroller.onclick = () => {
+			this.smoothScroll.animateScroll(
+				document.querySelector('.scene-container')
+			);
 		};
 	}
 }

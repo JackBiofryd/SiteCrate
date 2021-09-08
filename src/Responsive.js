@@ -8,6 +8,7 @@ export default class Responsive {
 		this.size = 'normal';
 
 		this.aspectRatio = this.canvas.offsetWidth / this.canvas.offsetHeight;
+		this.aspectRatio = this.aspectRatio / this.minAspectRatio;
 
 		this.responsiveFunction = () => {};
 
@@ -18,6 +19,7 @@ export default class Responsive {
 
 	handleResponsivness() {
 		this.aspectRatio = this.canvas.offsetWidth / this.canvas.offsetHeight;
+		this.aspectScaleFactor = this.aspectRatio / this.minAspectRatio;
 		this.responsiveFunction();
 	}
 

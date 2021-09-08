@@ -22,11 +22,7 @@ export default class Camera extends Responsive {
 			0.1,
 			1000
 		);
-		this.container.position.set(
-			this.initialPosition.x,
-			this.initialPosition.y,
-			this.initialPosition.z
-		);
+		this.container.position.copy(this.initialPosition);
 
 		this.enableCameraMovement = true;
 
@@ -35,6 +31,7 @@ export default class Camera extends Responsive {
 		this.animationDelay = this.animationDuration / 2;
 
 		this.initEvents();
+		this.sizeFactor = 0;
 		this.initResponsivness();
 	}
 
@@ -70,11 +67,16 @@ export default class Camera extends Responsive {
 			return (this.movedPosition.x = this.initialPosition.x);
 		}
 
-		const sizeFactor = 1 - this.aspectRatio / this.minAspectRatio;
+		this.sizeFactor = (1 - this.aspectScaleFactor) * 1.25;
 
-		this.container.position.x = this.initialPosition.x - sizeFactor * 1.25;
+		this.container.position.x = this.initialPosition.x - this.sizeFactor;
+		this.container.lookAt(
+			this.lookingAt.x - this.sizeFactor,
+			this.lookingAt.y,
+			this.lookingAt.z
+		);
 
-		this.movedPosition.x = this.initialPosition.x - sizeFactor * 1.25;
+		this.movedPosition.x = this.initialPosition.x - this.sizeFactor;
 	}
 
 	update() {
@@ -89,6 +91,7 @@ export default class Camera extends Responsive {
 	}
 
 	transitionTo(finalPosition, options) {
+		console.log('transito');
 		if (!this.enableCameraMovement) return;
 		this.enableCameraMovement = false;
 
@@ -161,6 +164,9 @@ export default class Camera extends Responsive {
 	}
 
 	turnCameraTowardCoordinate(x) {
+		console.log(this.mouse.x);
+		this.lookingAt.x = this.lookingAt.x - this.sizeFactor;
+
 		this.transitionTimeLine.to(
 			this.lookingAt,
 			{

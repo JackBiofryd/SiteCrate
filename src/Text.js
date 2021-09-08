@@ -2,7 +2,6 @@ import gsap from 'gsap/gsap-core';
 import { Text as ThreeText } from 'troika-three-text';
 import * as THREE from 'three';
 import Responsive from './Responsive';
-import Button from './Button';
 
 export default class Text extends Responsive {
 	constructor(_options) {
@@ -35,7 +34,6 @@ export default class Text extends Responsive {
 
 		this.load();
 		this.initResponsivness();
-		this.initButton();
 	}
 
 	load() {
@@ -93,9 +91,12 @@ export default class Text extends Responsive {
 		}
 
 		if (this.size === 'normal') {
-			const scaleFactor = this.aspectRatio / this.minAspectRatio;
-			this.text.position.y = (1 - scaleFactor) * 0.6;
-			this.text.scale.set(scaleFactor, scaleFactor, 1);
+			this.text.position.y = (1 - this.aspectScaleFactor) * 0.6;
+			this.text.scale.set(
+				this.aspectScaleFactor,
+				this.aspectScaleFactor,
+				1
+			);
 		}
 
 		if (this.aspectRatio < this.phoneRatio && this.size !== 'phoneSize') {
@@ -116,20 +117,6 @@ export default class Text extends Responsive {
 			this.secondaryText.maxWidth = 4.5;
 			this.secondaryText.sync();
 		}
-	}
-
-	initButton() {
-		const btnPos = this.position.clone();
-		btnPos.add(new THREE.Vector3(-3.4, -1.9, 0));
-
-		this.button = new Button({
-			scene: this.scene,
-			camera: this.camera,
-			loader: this.loader,
-			events: this.events,
-			timer: this.timer,
-			pos: btnPos
-		});
 	}
 
 	playFadeAnimation() {
