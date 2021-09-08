@@ -73,6 +73,7 @@ export default class Loader {
 			const texture = this.textureLoader.load(
 				this.textureUrls[textureName]
 			);
+			texture.encoding = THREE.sRGBEncoding;
 
 			this.textures[textureName] = texture;
 		}
