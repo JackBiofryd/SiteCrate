@@ -197,10 +197,17 @@ body.pointer {
 	border-radius: 35px;
 	cursor: pointer;
 	transition: 0.3s background ease;
+	outline: none;
+	border: none;
 }
 
 .btn:hover {
 	background: rgb(201, 196, 196);
+}
+
+.btn-block {
+	width: 100%;
+	display: block;
 }
 
 .my-1 {
@@ -724,6 +731,10 @@ body.pointer {
 	font-size: 0.9rem;
 	box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
 	resize: none;
+}
+
+.btn-submit {
+	font-size: 1.3rem;
 }
 
 .scroll-indicator {
