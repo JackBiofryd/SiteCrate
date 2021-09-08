@@ -108,7 +108,7 @@ module.exports = {
 
 			// Media Files
 			{
-				test: /\.(jpg|png|gif|svg|mp4|avi|webm|ico)$/,
+				test: /\.(jpg|png|gif|svg|mp4|avi|webm)$/,
 				use: [
 					{
 						loader: 'file-loader',
