@@ -23,19 +23,22 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: path.resolve(__dirname, '../src/index.html'),
 			minify: true,
-			chunks: ['main']
+			chunks: ['main'],
+			favicon: path.resolve(__dirname, '../static/favicon.ico')
 		}),
 		new HtmlWebpackPlugin({
 			template: path.resolve(__dirname, '../src/about.html'),
 			minify: true,
 			chunks: ['about'],
-			filename: 'about.html'
+			filename: 'about.html',
+			favicon: path.resolve(__dirname, '../static/favicon.ico')
 		}),
 		new HtmlWebpackPlugin({
 			template: path.resolve(__dirname, '../src/contact.html'),
 			minify: true,
 			chunks: ['contact'],
-			filename: 'contact.html'
+			filename: 'contact.html',
+			favicon: path.resolve(__dirname, '../static/favicon.ico')
 		}),
 		new MiniCSSExtractPlugin()
 	],
@@ -105,7 +108,7 @@ module.exports = {
 
 			// Media Files
 			{
-				test: /\.(jpg|png|gif|svg|mp4|avi|webm)$/,
+				test: /\.(jpg|png|gif|svg|mp4|avi|webm|ico)$/,
 				use: [
 					{
 						loader: 'file-loader',
