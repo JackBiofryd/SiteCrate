@@ -684,6 +684,7 @@ body.pointer {
 
 .confetti-section {
 	position: relative;
+	z-index: 10;
 }
 
 .confetti {
@@ -694,6 +695,7 @@ body.pointer {
 	height: 100%;
 	object-fit: cover;
 	opacity: 0;
+	z-index: -1;
 }
 
 /* Contact Page */
