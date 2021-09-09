@@ -6,7 +6,6 @@ import Camera from './Camera';
 import Text from './Text';
 import ThreeScene from './ThreeScene';
 import Button from './Button';
-import SmoothScroll from 'smooth-scroll';
 
 export default class ThreeApp {
 	constructor(_pageIndex) {
@@ -190,13 +189,6 @@ export default class ThreeApp {
 
 			scroller.classList.remove('fade-out');
 			scroller.classList.add('fade-in');
-		};
-
-		this.smoothScroll = new SmoothScroll();
-		scroller.onclick = () => {
-			this.smoothScroll.animateScroll(
-				document.querySelector('.scene-container')
-			);
 		};
 	}
 }

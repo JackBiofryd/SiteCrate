@@ -17,12 +17,12 @@ export default class Loader {
 		this.fontLoader = new THREE.FontLoader(this.loadingManager);
 
 		this.bakedTextureUrls = [
-			'baked3.png',
+			'baked.png',
 			'aboutBaked.jpg',
 			'contactBaked.jpg'
 		];
 		this.bakedModelUrls = [
-			'crate2.glb',
+			'crate.glb',
 			'aboutCrate.glb',
 			'contactCrate.glb'
 		];
