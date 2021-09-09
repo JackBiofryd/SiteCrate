@@ -275,7 +275,7 @@ body.pointer {
 /* Loading Bar */
 .loading-screen {
 	font-family: 'Tangerine';
-	position: absolute;
+	position: fixed;
 	width: 100%;
 	height: 100%;
 	top: 0;

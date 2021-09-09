@@ -45,7 +45,6 @@ export default class Loader {
 	}
 
 	disableScrolling() {
-		window.scrollTo(0, 0);
 		document.querySelector('html').style.overflow = 'hidden';
 	}
 

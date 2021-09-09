@@ -34,6 +34,11 @@ export default class ThreeApp {
 
 		this.initLoaderAnd3DElements();
 		this.initVanillaJS();
+
+		history.scrollRestoration = 'manual';
+		window.onbeforeunload = function () {
+			window.scrollTo(0, 0);
+		};
 	}
 
 	initTimer() {
