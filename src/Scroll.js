@@ -66,11 +66,6 @@ export default class Scroll {
 			{ background: '#0d3d51', duration: 1 },
 			'start'
 		);
-		this.choseUsTimeline.to(
-			'.overlay-shape',
-			{ duration: 2, translateY: 0 },
-			'start'
-		);
 	}
 
 	hideChoseUsContent() {

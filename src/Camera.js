@@ -91,7 +91,6 @@ export default class Camera extends Responsive {
 	}
 
 	transitionTo(finalPosition, options) {
-		console.log('transito');
 		if (!this.enableCameraMovement) return;
 		this.enableCameraMovement = false;
 
@@ -164,7 +163,6 @@ export default class Camera extends Responsive {
 	}
 
 	turnCameraTowardCoordinate(x) {
-		console.log(this.mouse.x);
 		this.lookingAt.x = this.lookingAt.x - this.sizeFactor;
 
 		this.transitionTimeLine.to(

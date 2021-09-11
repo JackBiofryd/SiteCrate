@@ -102,7 +102,7 @@ export default class Text extends Responsive {
 		if (this.aspectRatio < this.phoneRatio && this.size !== 'phoneSize') {
 			this.size = 'phoneSize';
 
-			this.text.position.y += 0.55;
+			this.text.position.y += 0.75;
 			this.text.scale.set(0.5, 0.5, 1);
 
 			this.primaryText.textAlign = 'center';

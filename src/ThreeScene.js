@@ -195,8 +195,8 @@ export default class ThreeScene extends Responsive {
 				translate +
 				this.crateXOffsetsFromCenterOfScene[this.sceneIndex];
 
-			this.container.position.y = this.initialPosition.y - 1.35;
-			this.movedPosition.y = this.initialPosition.y - 1.35;
+			this.container.position.y = this.initialPosition.y - 1.75;
+			this.movedPosition.y = this.initialPosition.y - 1.75;
 
 			this.size = 'phoneSize';
 		}

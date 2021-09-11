@@ -115,19 +115,33 @@ export default class Button extends Responsive {
 	}
 
 	transformAccordingToAspectRatio() {
-		this.mesh.visible = true;
-
 		if (this.aspectRatio > this.minAspectRatio) {
 			this.mesh.position.copy(this.pos);
 			return this.mesh.scale.set(1, 1, 1);
 		}
 
-		if (this.aspectRatio < this.phoneRatio) this.mesh.visible = false;
+		if (this.aspectRatio > this.phoneRatio) {
+			this.mesh.scale.set(
+				this.aspectScaleFactor * 1.1,
+				this.aspectScaleFactor * 1.1,
+				1
+			);
 
-		this.mesh.scale.set(this.aspectScaleFactor, this.aspectScaleFactor, 1);
+			this.mesh.position.y =
+				this.pos.y + (1 - this.aspectScaleFactor) * 1.85;
+			this.mesh.position.x =
+				this.pos.x + (1 - this.aspectScaleFactor) * 4.6;
 
-		this.mesh.position.y = this.pos.y + (1 - this.aspectScaleFactor) * 2;
-		this.mesh.position.x = this.pos.x + (1 - this.aspectScaleFactor) * 4.5;
+			this.size = 'normal';
+		}
+
+		if (this.aspectRatio < this.phoneRatio && this.size !== 'small') {
+			this.mesh.scale.set(0.7, 0.7, 1);
+
+			this.mesh.position.x = 0;
+			this.mesh.position.y = this.pos.y + 1;
+			this.size = 'small';
+		}
 	}
 
 	playFadeAnimation() {
