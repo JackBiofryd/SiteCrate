@@ -1,6 +1,5 @@
 import * as THREE from 'three';
 import gsap from 'gsap/gsap-core';
-import * as dat from 'dat.gui';
 import Responsive from './Responsive';
 import flagVertexShader from './shaders/flag/vertex.glsl';
 import flagFragmentShader from './shaders/flag/fragment.glsl';
@@ -34,6 +33,9 @@ export default class ThreeScene extends Responsive {
 			new THREE.Vector3(-0.608, -0.969, -1.004),
 			new THREE.Vector3(0, 0, -Math.PI / 2)
 		];
+
+		console.log(this.sceneIndex);
+		this.sceneIndex === 0 && (this.buttonIsPresent = true);
 
 		this.load();
 	}
@@ -195,8 +197,11 @@ export default class ThreeScene extends Responsive {
 				translate +
 				this.crateXOffsetsFromCenterOfScene[this.sceneIndex];
 
-			this.container.position.y = this.initialPosition.y - 1.75;
-			this.movedPosition.y = this.initialPosition.y - 1.75;
+			let yOffset = 1.25;
+			if (this.buttonIsPresent) yOffset += 0.5;
+
+			this.container.position.y = this.initialPosition.y - yOffset;
+			this.movedPosition.y = this.initialPosition.y - yOffset;
 
 			this.size = 'phoneSize';
 		}
