@@ -769,24 +769,6 @@ body.pointer {
 	margin: 0 1rem;
 }
 
-@media (max-height: 500px) {
-	.logo {
-		width: 50px;
-	}
-
-	.M-heading {
-		font-size: 1.75rem;
-	}
-
-	.chose-us-section .text-container .XL-heading {
-		font-size: 15vh;
-	}
-
-	.chose-us-section .shape {
-		max-height: 50vh;
-	}
-}
-
 @media (max-width: 768px), (orientation: portrait) {
 	.flex {
 		flex-direction: column;
@@ -836,7 +818,7 @@ body.pointer {
 
 @media (max-width: 768px) {
 	.XL-heading {
-		font-size: 5rem;
+		font-size: 15vw;
 	}
 	.nav-links {
 		display: none;
@@ -926,6 +908,32 @@ body.pointer {
 	.journey-section.reverse .flex {
 		flex-direction: column;
 	}
+
+	.logo-container {
+		margin-left: 1.5rem;
+	}
+
+	.M-heading {
+		font-size: 1.75rem;
+	}
+}
+
+@media (max-height: 500px) {
+	.logo {
+		width: 50px;
+	}
+
+	.M-heading {
+		font-size: 1.75rem;
+	}
+
+	.chose-us-section .text-container .XL-heading {
+		font-size: 15vh;
+	}
+
+	.chose-us-section .shape {
+		max-height: 50vh;
+	}
 }
 
 @media (max-width: 1000px), (orientation: portrait) {
@@ -939,10 +947,6 @@ body.pointer {
 }
 
 @media (max-width: 400px) {
-	.XL-heading {
-		font-size: 3rem;
-	}
-
 	.L-heading {
 		font-size: 3rem;
 	}
@@ -965,5 +969,12 @@ body.pointer {
 
 	.footer-links a {
 		margin-bottom: 1rem;
+	}
+}
+
+@media (max-width: 300px) {
+	.logo-container {
+		transform: scale(0.8);
+		margin-left: 0;
 	}
 }
