@@ -34,7 +34,6 @@ export default class ThreeScene extends Responsive {
 			new THREE.Vector3(0, 0, -Math.PI / 2)
 		];
 
-		console.log(this.sceneIndex);
 		this.sceneIndex === 0 && (this.buttonIsPresent = true);
 
 		this.load();
@@ -101,20 +100,19 @@ export default class ThreeScene extends Responsive {
 
 	traverseScene() {
 		this.container.traverse(child => {
+			if (!(child instanceof THREE.Mesh)) return;
+
 			this.applyBakedMaterialToMesh(child);
 			this.checkIfMeshIsLight(child);
 			this.checkIfMeshIsFlag(child);
 			this.checkIfMeshIsSideOfCrate(child);
 			this.checkIfMeshIsFloor(child);
+			this.changeMeshRenderSettings(child);
 		});
 	}
 
 	applyBakedMaterialToMesh(mesh) {
-		if (
-			!(mesh instanceof THREE.Mesh) ||
-			!(mesh.material instanceof THREE.MeshStandardMaterial)
-		)
-			return;
+		if (!(mesh.material instanceof THREE.MeshStandardMaterial)) return;
 
 		if (mesh instanceof THREE.SkinnedMesh)
 			return (mesh.material = this.skinnedBakedMaterial);
@@ -123,32 +121,27 @@ export default class ThreeScene extends Responsive {
 	}
 
 	checkIfMeshIsLight(mesh) {
-		if (!(mesh instanceof THREE.Mesh)) return;
+		if (!mesh.name.includes('Light')) return;
 
-		if (mesh.name.includes('Light')) {
-			mesh.material = new THREE.MeshBasicMaterial({
-				color: '#B6F6FF'
-			});
-		}
+		mesh.material = new THREE.MeshBasicMaterial({
+			color: '#B6F6FF'
+		});
 	}
 
 	checkIfMeshIsFlag(mesh) {
-		if (!(mesh instanceof THREE.Mesh)) return;
-
-		if (mesh.name.includes('Flag')) {
-			mesh.material = this.flagMaterial;
-		}
+		if (mesh.name.includes('Flag')) mesh.material = this.flagMaterial;
 	}
 
 	checkIfMeshIsSideOfCrate(mesh) {
-		if (!(mesh instanceof THREE.Mesh)) return;
-
 		if (mesh.name === 'Side1') this.frontCrateSide = mesh;
 	}
 
 	checkIfMeshIsFloor(mesh) {
-		if (!(mesh instanceof THREE.Mesh)) return;
 		if (mesh.name === 'Floor') mesh.material = this.floorMaterial;
+	}
+
+	changeMeshRenderSettings(mesh) {
+		mesh.frustumCulled = false;
 	}
 
 	initAnimations() {
