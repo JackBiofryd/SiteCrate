@@ -20,8 +20,8 @@ export default class ThreeApp {
 				lookAt: new THREE.Vector3(2.9, 1.4, 0)
 			},
 			{
-				pos: new THREE.Vector3(1, 8, -15),
-				lookAt: new THREE.Vector3(2.5, 3, 0)
+				pos: new THREE.Vector3(1.25, 7.4, -15),
+				lookAt: new THREE.Vector3(2.75, 2.4, 0)
 			},
 			{
 				pos: new THREE.Vector3(-5.78, 6.53, -13.75),

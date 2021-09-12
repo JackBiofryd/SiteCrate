@@ -17,7 +17,7 @@ export default class ThreeScene extends Responsive {
 		this.initialPosition = new THREE.Vector3();
 		this.movedPosition = new THREE.Vector3();
 
-		this.backgroundColors = [0x0d3d51, 0x591810, 0x534708];
+		this.backgroundColors = [0x0d3d51, 0x591810, 0x856e25];
 
 		this.crateXOffsetsFromCenterOfScene = [0, -1.75, -1];
 		this.crateXOffsetsFromCenterOfCrate = [0, 0.35, -0.15];

@@ -18,8 +18,8 @@ export default class Loader {
 
 		this.bakedTextureUrls = [
 			'baked.png',
-			'aboutBaked.jpg',
-			'contactBaked.jpg'
+			'aboutBaked.png',
+			'contactBaked.png'
 		];
 		this.bakedModelUrls = [
 			'crate.glb',
