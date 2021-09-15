@@ -769,6 +769,12 @@ body.pointer {
 	margin: 0 1rem;
 }
 
+.nolink {
+	position: fixed;
+	top: -100%;
+	left: -100%;
+}
+
 @media (max-width: 768px), (orientation: portrait) {
 	.flex {
 		flex-direction: column;
